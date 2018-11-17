@@ -9,6 +9,8 @@ public class Properties {
     private static final String DEFAULT_BASE_URL = "http://prestashop-automation.qatestlab.com.ua/";
     private static final String DEFAULT_BASE_ADMIN_URL = "http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/";
     private static final String DEFAULT_BROWSER = BrowserType.CHROME;
+    private static final String DEFAULT_LOGIN = "webinar.test@gmail.com";
+    private static final String DEFAULT_PASSWORD = "Xcg7299bnSmMuRLp9ITw";
 
     /**
      *
@@ -34,6 +36,22 @@ public class Properties {
         return System.getProperty(EnvironmentVariables.BROWSER.toString(), DEFAULT_BROWSER);
     }
 
+    /**
+     *
+     * @return The user's login.
+     */
+    public static String getLogin() {
+        return System.getProperty(EnvironmentVariables.LOGIN.toString(), DEFAULT_LOGIN);
+    }
+
+    /**
+     *
+     * @return The user's password.
+     */
+    public static String getPassword() {
+        return System.getProperty(EnvironmentVariables.PASSWORD.toString(), DEFAULT_PASSWORD);
+    }
+
 }
 
 /**
@@ -42,7 +60,9 @@ public class Properties {
 enum EnvironmentVariables {
     BASE_URL("env.url"),
     BASE_ADMIN_URL("env.admin.url"),
-    BROWSER("browser");
+    BROWSER("browser"),
+    LOGIN("login"),
+    PASSWORD("password");
 
     private String value;
     EnvironmentVariables(String value) {
